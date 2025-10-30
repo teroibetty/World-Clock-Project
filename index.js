@@ -20,6 +20,17 @@ function updateTime() {
   newYorkTimeElement.innerHTML = moment()
     .tz("America/New_York")
     .format("hh:mm:ss [<small>]A[</small>]");
+
+  let accraElement = document.querySelector("#accra");
+  let accraTimeElement = accraElement.querySelector(".time");
+  let accraDateElement = accraElement.querySelector(".date");
+
+  accraDateElement.innerHTML = moment()
+    .tz("Africa/Accra")
+    .format("Do MMMM YYYY");
+  accraTimeElement.innerHTML = moment()
+    .tz("Africa/Accra")
+    .format("hh:mm:ss [<small>]A[</small>]");
 }
 updateTime();
 setInterval(updateTime, 1000);
@@ -40,7 +51,8 @@ function updateCity(event) {
             <div class="time">${cityTime.format(
               "hh:mm:ss"
             )}<small> ${cityTime.format("A")}</small></div>
-          </div>`;
+          </div> 
+          <a href="/">Back to all cities </a>`;
 }
 
 let citySelectElement = document.querySelector("#select-city");
